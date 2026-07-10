@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>张娟 · 做美容的第十四年</title>
+<meta name="description" content="从四川大巴山到北京，从东城到西城——张娟做美容的第十四年。芭迪科技美容抗衰广安 · 考拉社区。">
+<meta name="theme-color" content="#F6F1E7">
+<!-- 微信分享卡片（上线后按需完善） -->
+<meta property="og:title" content="张娟 · 做美容的第十四年">
+<meta property="og:description" content="从大巴山到北京，从东城到西城。">
+<!--
+  ══════════════════════════════════════════
+  张娟个人IP · 手机端单页 v0.2
+  v0.2 修订（2026-07）：
+  · 叙事骨架更正：大巴山 → 东城东四入行 → 西城考拉社区创店
+  · 删除全部"一栋楼 / 楼里 / 没挪窝"类措辞
+  · "楼里的姐姐们"等统一改为"身边的姐姐们"，栏目同步更名
+  · 店名统一为"芭迪科技美容抗衰广安"
+  · 开篇眉题仅保留"考拉社区"
+  待替换清单（搜索 [替换] 可全部定位）：
+  1. [替换] 企业微信活码图片
+  2. [替换] 营业执照主体名称
+  3. [替换] ICP备案号 / 公安备案号
+  4. [替换] 《身边的姐姐们》首篇上线后换真实摘要与链接
+  生产环境建议：
+  · 字体：正式部署时将 Noto Serif SC 子集化后自托管
+    （只需覆盖页面实际用字，约100KB内），删除下方 Google Fonts 引用
+  · 备案通过前域名不要解析
+  ══════════════════════════════════════════
+-->
+<style>
+  :root{
+    --paper:#F6F1E7;      /* 米纸底 */
+    --ink:#1F1B16;        /* 暖墨色 */
+    --clay:#C3532C;       /* 川味陶红（主强调色） */
+    --moss:#5E6B4F;       /* 大巴山黛绿（只用于山形与一处细节） */
+    --tea:#8B7C69;        /* 茶色次级文字 */
+    --line:#E3D9C8;       /* 发丝分隔线 */
+    --card:#FFFBF3;       /* 卡片底 */
+    --serif:"Noto Serif SC","Songti SC","STSong",serif;
+    --sans:-apple-system,"PingFang SC","MiSans","HarmonyOS Sans SC","Microsoft YaHei",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.9;
+    letter-spacing:.02em;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--clay);color:var(--paper)}
+
+  .wrap{max-width:620px;margin:0 auto;padding:0 26px}
+  .sec{padding:84px 0 0}
+
+  /* ── 小标签（眉题） ── */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12.5px;letter-spacing:.32em;color:var(--clay);
+    font-weight:600;margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--clay)}
+
+  /* ── 首屏 ── */
+  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative;padding-top:64px}
+  .hero .eyebrow{opacity:0;animation:rise .9s .15s cubic-bezier(.2,.7,.2,1) forwards}
+  h1{
+    font-family:var(--serif);font-weight:900;
+    font-size:clamp(88px,26vw,132px);
+    line-height:1.04;letter-spacing:.04em;
+    opacity:0;animation:rise 1s .35s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  .hero-sub{
+    margin-top:26px;font-size:18px;color:var(--ink);
+    opacity:0;animation:rise 1s .6s cubic-bezier(.2,.7,.2,1) forwards;
+    max-width:30em;
+  }
+  /* 着重号：中文的强调方式 */
+  .dot-em{-webkit-text-emphasis:dot var(--clay);text-emphasis:dot var(--clay);font-weight:600}
+  .hero-role{
+    margin-top:14px;font-size:14px;color:var(--tea);letter-spacing:.12em;
+    opacity:0;animation:rise 1s .75s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+  /* 山脊线：签名元素的起点 */
+  .ridge{margin-top:44px;width:100%;height:auto}
+  .ridge path{
+    fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:1200;stroke-dashoffset:1200;
+  }
+  .ridge .r1{stroke:var(--moss);animation:draw 2.4s 1s ease forwards}
+  .ridge .r2{stroke:var(--moss);opacity:.45;animation:draw 2.4s 1.35s ease forwards}
+  .ridge .r3{stroke:var(--clay);animation:draw 2.6s 1.7s ease forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  .scroll-cue{
+    position:absolute;bottom:26px;left:26px;
+    font-size:12px;letter-spacing:.28em;color:var(--tea);
+    opacity:0;animation:rise 1s 2.4s forwards;
+  }
+  .scroll-cue::after{
+    content:"";display:block;width:1px;height:34px;margin-top:10px;
+    background:linear-gradient(var(--tea),transparent);
+    animation:cue 1.8s 2.6s ease-in-out infinite;
+  }
+  @keyframes cue{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+
+  /* ── 滚动渐现 ── */
+  .io{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+  .io.on{opacity:1;transform:none}
+
+  /* ── 章节标题 ── */
+  h2{font-family:var(--serif);font-weight:900;font-size:34px;line-height:1.3;letter-spacing:.03em;margin-bottom:18px}
+  .lead{color:var(--tea);max-width:32em}
+
+  /* ── 时间轴：那条线进了城 ── */
+  .timeline{position:relative;margin-top:46px;padding-left:34px}
+  .spine{
+    position:absolute;left:8px;top:6px;bottom:6px;width:2px;
+    background:var(--clay);transform:scaleY(0);transform-origin:top;
+    transition:transform .2s linear;
+  }
+  .node{position:relative;padding-bottom:52px}
+  .node:last-child{padding-bottom:8px}
+  .node::before{
+    content:"";position:absolute;left:-30px;top:12px;
+    width:10px;height:10px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--clay);
+    transition:background .4s .3s;
+  }
+  .node.on::before{background:var(--clay)}
+  .node:last-child::before{width:14px;height:14px;left:-32px;background:var(--clay);box-shadow:0 0 0 6px rgba(195,83,44,.14)}
+  .year{
+    font-family:var(--serif);font-weight:900;font-size:26px;
+    color:var(--clay);letter-spacing:.04em;line-height:1;margin-bottom:10px;
+  }
+  .node p{max-width:30em}
+  .node .addr{color:var(--tea);font-size:14.5px;letter-spacing:.06em}
+
+  /* ── 大字陈述 ── */
+  .statement{
+    font-family:var(--serif);font-weight:900;
+    font-size:clamp(34px,9vw,48px);line-height:1.5;letter-spacing:.05em;
+  }
+  .statement em{font-style:normal;color:var(--clay)}
+
+  /* ── 数字带 ── */
+  .stats{display:flex;gap:12px;margin-top:44px}
+  .stat{flex:1;border-top:2px solid var(--ink);padding-top:16px}
+  .num{font-family:var(--serif);font-weight:900;font-size:40px;line-height:1;letter-spacing:.02em}
+  .num small{font-size:16px;font-weight:600;margin-left:3px}
+  .stat span{display:block;margin-top:8px;font-size:13.5px;color:var(--tea);letter-spacing:.08em}
+  .footnote{margin-top:14px;font-size:12.5px;color:var(--tea)}
+
+  /* ── 姐姐们 ── */
+  .story-card{
+    margin-top:34px;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;padding:26px 24px;position:relative;overflow:hidden;
+  }
+  .story-card::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--moss);
+  }
+  .story-tag{font-size:12px;letter-spacing:.26em;color:var(--moss);font-weight:600}
+  .story-card h3{font-family:var(--serif);font-size:21px;font-weight:900;margin:10px 0 8px}
+  .story-card p{font-size:15.5px;color:var(--tea)}
+
+  /* ── 课堂 ── */
+  .class-meta{display:flex;gap:22px;margin:20px 0 8px;font-size:14px;color:var(--tea);letter-spacing:.06em}
+  .class-meta b{color:var(--ink);font-weight:600}
+  .cards{margin-top:26px;display:grid;gap:14px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:24px;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;
+  }
+  .card:active{transform:scale(.985)}
+  .card h3{font-family:var(--serif);font-size:20px;font-weight:900;margin-bottom:8px}
+  .card h3::before{content:"— ";color:var(--clay)}
+  .card p{font-size:15px;color:var(--tea);line-height:1.8}
+
+  /* ── CTA ── */
+  .cta-box{
+    margin-top:44px;background:var(--ink);color:var(--paper);
+    border-radius:20px;padding:34px 28px;text-align:center;
+  }
+  .cta-box p{font-size:15px;opacity:.75;letter-spacing:.06em}
+  .cta-btn{
+    display:inline-block;margin-top:18px;
+    background:var(--clay);color:#FFF7EE;text-decoration:none;
+    font-size:17px;font-weight:600;letter-spacing:.1em;
+    padding:15px 34px;border-radius:999px;
+    transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .3s;
+  }
+  .cta-btn:active{transform:scale(.96)}
+  .cta-btn:focus-visible{outline:3px solid #FFF7EE;outline-offset:3px}
+  .qr{
+    margin:26px auto 4px;width:168px;height:168px;border-radius:14px;
+    border:1.5px dashed rgba(246,241,231,.5);
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;letter-spacing:.12em;opacity:.7;
+  }
+  /* [替换] 有活码后：删除 .qr 内文字，放 <img> 即可 */
+
+  /* ── 到店 ── */
+  .visit{border-top:1px solid var(--line);margin-top:84px;padding-top:64px}
+  .visit .name{font-family:var(--serif);font-size:24px;font-weight:900;margin-bottom:10px}
+  .visit p{color:var(--tea)}
+  .visit .hint{margin-top:10px;font-size:14.5px}
+  .visit .hint b{color:var(--clay);font-weight:600}
+
+  /* ── 页脚 · 背书位 ── */
+  footer{margin-top:84px;border-top:1px solid var(--line);padding:38px 0 calc(46px + env(safe-area-inset-bottom))}
+  footer .real{font-size:15px;letter-spacing:.04em}
+  footer .real b{font-family:var(--serif);font-weight:900}
+  footer small{
+    display:block;margin-top:16px;font-size:12.5px;line-height:2.1;
+    color:var(--tea);letter-spacing:.04em;
+  }
+
+  @media (min-width:640px){
+    body{font-size:18px}
+    .cards{grid-template-columns:1fr 1fr 1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .io,.hero .eyebrow,h1,.hero-sub,.hero-role,.scroll-cue{opacity:1;transform:none}
+    .ridge path{stroke-dashoffset:0}
+    .spine{transform:scaleY(1)}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ 首屏 ═══════════ -->
+<header class="hero wrap">
+  <span class="eyebrow">考拉社区</span>
+  <h1>张娟</h1>
+  <p class="hero-sub">从四川大巴山到北京，从东城到西城，做美容的<span class="dot-em">第十四年</span>。</p>
+  <p class="hero-role">芭迪科技美容抗衰广安 · 主理人</p>
+
+  <!-- 签名元素起点：大巴山山脊线，一路画进城 -->
+  <svg class="ridge" viewBox="0 0 620 150" aria-hidden="true">
+    <path class="r1" d="M0,118 L70,74 L118,102 L176,52 L236,96 L300,60 L352,88"/>
+    <path class="r2" d="M120,132 L190,96 L246,120 L318,78 L388,112 L452,90"/>
+    <path class="r3" d="M352,88 L420,64 L478,92 L540,72 C570,62 596,80 618,118"/>
+  </svg>
+
+  <span class="scroll-cue">往下走</span>
+</header>
+
+<main>
+  <!-- ═══════════ 她的十四年 ═══════════ -->
+  <section class="sec wrap">
+    <span class="eyebrow io">她的十四年</span>
+    <h2 class="io">从东城东四的美容师，<br>到西城考拉社区的老板娘。</h2>
+
+    <div class="timeline">
+      <div class="spine" id="spine"></div>
+
+      <div class="node io">
+        <div class="year">2012</div>
+        <p>从四川大巴山来到北京。人生第一份美容工作，在东城东四的一家店里，从最基础的服务做起。</p>
+        <p class="addr">北京市东城区 · 东四</p>
+      </div>
+
+      <div class="node io">
+        <div class="year">2012–2020</div>
+        <p>手艺一年年磨，从基层美容师做到店长。身边的姐姐们看着她成长，她看着姐姐们的孩子长大。</p>
+      </div>
+
+      <div class="node io">
+        <div class="year">2020</div>
+        <p>从东城到西城。在广安门外的考拉社区，创立了自己的店——芭迪科技美容抗衰广安。那一年开店的人都知道有多难——她没走，把最难的三年守了过来。</p>
+        <p class="addr">北京市西城区 · 广安门外 · 考拉社区</p>
+      </div>
+
+      <div class="node io">
+        <div class="year">2026</div>
+        <p>第十四年。店在考拉社区，身边的姐姐们越处越熟。</p>
+        <p class="addr">信德园4号楼 · 105</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 大字陈述 + 数字 ═══════════ -->
+  <section class="sec wrap">
+    <p class="statement io">十四年，<br><em>就做这一件事。</em></p>
+
+    <div class="stats">
+      <div class="stat io"><div class="num" data-count="14">0<small>年</small></div><span>手艺</span></div>
+      <div class="stat io"><div class="num" data-count="2">0<small>个城区</small></div><span>从东城到西城</span></div>
+      <div class="stat io"><div class="num" data-count="5700">0<small>+户</small></div><span>门口街坊</span></div>
+    </div>
+    <p class="footnote io">* 门口约400米范围内住户数，来自区域调研数据。</p>
+  </section>
+
+  <!-- ═══════════ 身边的姐姐们 ═══════════ -->
+  <section class="sec wrap">
+    <span class="eyebrow io">身边的姐姐们</span>
+    <h2 class="io">十四年攒下的不是客户名单，<br>是一位一位处出来的情分。</h2>
+    <p class="lead io">有的姐姐从她入行那些年起，一路跟到了今天。经她们同意后，这里会一篇一篇写下她们的故事。</p>
+
+    <!-- [替换] 首篇上线后换真实标题、摘要与链接 -->
+    <div class="story-card io">
+      <span class="story-tag">第一篇 · 整理中</span>
+      <h3>「跟着我从东城到西城的姐姐」</h3>
+      <p>正在和这位姐姐一起回忆最早的那些年。写好了，第一时间放在这里。</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ 考拉变美课堂 ═══════════ -->
+  <section class="sec wrap">
+    <span class="eyebrow io">考拉变美课堂</span>
+    <h2 class="io">不卖医美，<br>所以敢讲真话。</h2>
+    <p class="lead io">一门开在店里的免费小课。不推项目、不办卡，就把十四年看明白的事，讲给身边的姐姐们听。</p>
+
+    <div class="class-meta io">
+      <span><b>免费</b> 公开课</span>
+      <span><b>8–12</b> 席 / 期</span>
+      <span><b>每月</b> 1–2 期</span>
+    </div>
+
+    <div class="cards">
+      <div class="card io">
+        <h3>居家护肤的科学</h3>
+        <p>成分怎么看、手法怎么做、换季怎么办——在家就能做对的那部分。</p>
+      </div>
+      <div class="card io">
+        <h3>医美避坑指南</h3>
+        <p>怎么查机构资质、怎么问价格、什么情况千万别做。只帮你看懂，不替任何人卖。</p>
+      </div>
+      <div class="card io">
+        <h3>睡眠 · 肩颈 · 好状态</h3>
+        <p>状态是养出来的：睡眠、肩颈、体态这些日常小事，比什么都管用。</p>
+      </div>
+    </div>
+
+    <div class="cta-box io">
+      <p>下一期开课前，先加个微信</p>
+      <a class="cta-btn" href="#qr">加张娟微信 · 报名下一期</a>
+      <div class="qr" id="qr">企业微信活码 · 占位</div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 到店 ═══════════ -->
+  <section class="wrap visit">
+    <span class="eyebrow io">来店里坐坐</span>
+    <div class="io">
+      <p class="name">芭迪科技美容抗衰广安</p>
+      <p>北京市西城区广安门外<br>信德园小区 4号楼 105（考拉社区内）</p>
+      <p class="hint">进了小区，问<b>4号楼</b>就行。</p>
+    </div>
+  </section>
+</main>
+
+<!-- ═══════════ 页脚 · 本名背书位 ═══════════ -->
+<footer class="wrap">
+  <p class="real io">主理人本名 <b>张娟</b> —— 实名，实店，就在这儿。</p>
+  <small class="io">
+    经营主体：芭迪科技美容抗衰广安（<!-- [替换] 营业执照主体名称 -->营业执照主体名称占位）<br>
+    <!-- [替换] 备案号，通过后填写并链接至 beian.miit.gov.cn -->
+    京ICP备 ________ 号 &nbsp;·&nbsp; 京公网安备 ________ 号<br>
+    © 2026 张娟 · 考拉社区
+  </small>
+</footer>
+
+<script>
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* 滚动渐现 */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+    });
+  },{threshold:.18,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.io,.node').forEach(function(el){ io.observe(el); });
+
+  /* 时间轴脊柱：随滚动生长（签名元素的第二段） */
+  var spine = document.getElementById('spine');
+  var tl = document.querySelector('.timeline');
+  function grow(){
+    if(!tl || reduced) return;
+    var r = tl.getBoundingClientRect();
+    var vh = innerHeight;
+    var p = (vh*0.82 - r.top) / r.height;
+    spine.style.transform = 'scaleY(' + Math.min(1, Math.max(0, p)) + ')';
+  }
+  if(reduced && spine){ spine.style.transform='scaleY(1)'; }
+  addEventListener('scroll', function(){ requestAnimationFrame(grow); }, {passive:true});
+  grow();
+
+  /* 数字计数 */
+  var counted = new WeakSet();
+  var nio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting || counted.has(e.target)) return;
+      counted.add(e.target);
+      var el = e.target, end = +el.dataset.count, small = el.querySelector('small');
+      var suffix = small ? small.outerHTML : '';
+      if(reduced){ el.innerHTML = end + suffix; return; }
+      var t0 = null, dur = 1400;
+      function step(t){
+        if(!t0) t0 = t;
+        var k = Math.min(1,(t - t0)/dur);
+        k = 1 - Math.pow(1-k,3);
+        el.innerHTML = Math.round(end*k) + suffix;
+        if(k < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      nio.unobserve(el);
+    });
+  },{threshold:.6});
+  document.querySelectorAll('.num').forEach(function(el){ nio.observe(el); });
+})();
+</script>
+</body>
+</html>
